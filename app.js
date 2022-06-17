@@ -46,7 +46,6 @@ async function fetchToWeather(lat, lon) {
   const countryTag = data.sys.country;
   const date = new Date(data.dt * 1000);
   const dayOfTheWeek = days[date.getDay()];
-  // const dayOfTheWeekShorted = shortDays[date.getDay()]
   const fullDate =
     date.getDate() + " " + month[date.getMonth()] + " " + date.getFullYear();
   const temperature = Math.floor(data.main.temp - 273) + "°C";
@@ -91,10 +90,10 @@ function dataTransfer(
   windSpeedTarget.innerText = windSpeed;
 
   weatherIconsTarget.forEach((icon) => {
-    weatherDescription == "Clouds" ? (icon.src = "/img/Clouds.svg") : "";
-    weatherDescription == "Rain" ? (icon.src = "/img/Rain.svg") : "";
-    weatherDescription == "Snow" ? (icon.src = "/img/Snow.svg") : "";
-    weatherDescription == "Clear" ? (icon.src = "/img/Sunny.svg") : "";
+    weatherDescription == "Clouds" ?? (icon.src = "./img/Clouds.svg");
+    weatherDescription == "Rain" ?? (icon.src = "./img/Rain.svg");
+    weatherDescription == "Snow" ?? (icon.src = "./img/Snow.svg");
+    weatherDescription == "Clear" ?? (icon.src = "./img/Sunny.svg");
   });
 }
 
